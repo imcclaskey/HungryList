@@ -1,0 +1,113 @@
+/************************************
+*
+*   base
+*
+************************************/
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+}
+body {
+  padding: 0 0 0 0;
+  overflow-y: scroll;
+}
+
+/************************************
+*
+*   navbar and navmenu
+*
+************************************/
+
+.navmenu {
+  padding-top: 50px;
+}
+
+.navbar {
+  display: block;
+  text-align: center;
+}
+
+.navbar-toggle {
+  position: absolute;
+  float: left;
+  margin-left: 15px;
+}
+
+.navbar-custom {
+  background-color: transparent;
+}
+
+.navbar-brand {
+  display: inline-block;
+  float: none;
+  text-transform:uppercase;
+  font-weight: 600;
+  letter-spacing:2px;
+  font-size:2rem;
+  color: #7ef692;
+}
+
+
+.navmenu-custom {
+  background-color: #2A2531;
+  border-width: 0 1px 0 0;
+  border-color: #3C3B3B;
+}
+
+.navbar-custom > button > span {
+  background-color: #fff;
+}
+
+
+
+
+
+
+@media (min-width: 1px) {
+  .navbar-toggle {
+    display: block !important;
+  }
+  .navmenu, .navbar-offcanvas{
+    width: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0 0 0 300px;
+  }
+  .navmenu {
+    padding-top: 0;
+  }
+  .navbar {
+    display: none !important; /* IE8 fix */
+  }
+  .navmenu, .navbar-offcanvas{
+    width: 300px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************
+*
+*   wall #1c1920 purple #111925 navy
+*
+************************************/
+
+.wall {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #1c1920;
+}
