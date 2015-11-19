@@ -1,7 +1,9 @@
 <template name="nav">
 
 	<div class="navmenu navmenu-custom navmenu-fixed-left offcanvas-sm">
-        <a class="navmenu-brand visible-md visible-lg" href="#">Hungrylist</a>
+        <a rel="home" href="#" title="Hungrylist">
+            <img src="hungrylist4.svg">
+        </a>
         <ul class="nav navmenu-nav">
             <li><a href="../groceries">Groceries</a></li>
             <li><a href="../habits/">Habits</a></li>
@@ -10,12 +12,14 @@
     </div>
 
     <div class="navbar navbar-custom navbar-fixed-top hidden-md hidden-lg">
-      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-disable-scrolling="false">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Hungrylist</a>
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-disable-scrolling="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a rel="home" href="#" title="Hungrylist">
+            <img style="height: 100px;" src="hungrylist4.svg">
+        </a>
         <!-- <ul class="nav navbar-nav navbar-right">
             { >loginButtons }}
         </ul> -->
