@@ -19,12 +19,7 @@ body {
 *
 ************************************/
 
-.navmenu {
-  padding-top: 50px;
-}
-
 .navbar {
-  display: block;
   text-align: center;
 }
 
@@ -51,8 +46,7 @@ body {
 
 .navmenu-custom {
   background-color: #2A2531;
-  border-width: 0 1px 0 0;
-  border-color: #3C3B3B;
+  border-width: 0;
 }
 
 .navbar-custom > button > span {
@@ -73,9 +67,43 @@ body {
   font-family: ff-nuvo-web-pro;
   font-weight: 900;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   color: #fff;
   font-size: 3.2rem;
+}
+
+.btn-custom {
+  background-color: #36313C;
+  border-radius: 0px;
+  color: #fff;
+  display: block;
+  font-family: ff-nuvo-web-pro;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: auto;
+  padding: 12px 0 8px 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.btn-custom:hover, .btn-custom:active {
+  color: #fff;
+  background-color: #413B48;
+}
+
+#shopping {
+  background-color: #17B26A;
+  border-radius: 10px;
+  margin-bottom:30px;
+  width: 85%;
+  text-align: center;
+  padding-left: 0px;
+}
+
+#shopping:hover, #shopping:active{
+  color: #fff;
+  background-color: #00D672;
 }
 
 
