@@ -1,3 +1,3 @@
 Router.configure({ layoutTemplate: 'layout'});
 
-Router.route('/groceries', {name: "groceries"});
+Router.route('/shop', {name: "shop"});
