@@ -1,12 +1,38 @@
 .btn-buy {
 	display: block;
 	width: 100%;
-	font-size: 4.8rem;
 	line-height: 1.33333;
 	margin-top: 5px;
 	padding: 10px 16px 10px 30px;
-	text-align:left;
-	color: #fff;
 	background-color: #337ab7;
-	border-radius:6px
+	border-radius:6px;
+
+	.extend {
+		display:none;
+	}
+
+	&:hover {
+	}
+
+	.buy-left {
+		font-size: 4rem;
+		color: #fff;
+		text-align:left;
+	}
+
+	.buy-right {
+		@extend .buy-left;
+		text-align:right;
+	}
+
+	.buy-under-left {
+		font-size: 2.4rem;
+		color: #fff;
+		text-align: left;
+	}
+
+	.buy-under-right {
+		@extend .buy-under-left;
+		text-align:right
+	}
 }
