@@ -1,20 +1,31 @@
+@import 'anim/all';
+
+.buy-list {
+	height: 100%;
+}
+
 .btn-buy {
+	width:100%;
 	display: block;
-	width: 100%;
 	line-height: 1.33333;
 	margin-top: 5px;
 	padding: 10px 16px 10px 30px;
-	background-color: #337ab7;
+	background-color: #2C517D; //#337ab7
 	border-radius:6px;
+	@include all(.1s, ease-in-out);
+
 
 	.extend {
 		display:none;
 	}
 
 	&:hover {
+		background-color: #4179BB;
 	}
 
 	.buy-left {
+		overflow:hidden;
+		text-overflow: ellipsis;
 		font-size: 4rem;
 		color: #fff;
 		text-align:left;

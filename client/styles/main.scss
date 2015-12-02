@@ -156,4 +156,13 @@ body {
   height: 100%;
   position: relative;
   background-color: #1c1920;
+
+  > div {
+    height: inherit;
+
+    > div {
+      height: 90%;
+      
+    }
+  }
 }

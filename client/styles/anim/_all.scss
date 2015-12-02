@@ -1,0 +1,4 @@
+@mixin all ($delay, $timing) {
+  -webkit-transition: all $delay $timing;
+  transition: all $delay $timing;
+}
