@@ -1,17 +1,36 @@
 @import 'anim/all';
 
+#shop {
+	height: inherit;
+
+	> .row {
+		height:inherit;
+
+		> div {
+			height: inherit;
+		}
+	}
+}
+
+
+
 .buy-list {
 	height: 100%;
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-top: 150px;
 }
 
 .btn-buy {
 	width:100%;
 	display: block;
 	line-height: 1.33333;
-	margin-top: 5px;
+	margin-top: 10px;
 	padding: 10px 16px 10px 30px;
 	background-color: #2C517D; //#337ab7
-	border-radius:6px;
+	border-radius:10px;
 	@include all(.1s, ease-in-out);
 
 
@@ -46,4 +65,23 @@
 		@extend .buy-under-left;
 		text-align:right
 	}
+}
+
+.buffer {
+	height: 32px;
+	width:100%;
+}
+
+// scrollbar
+.mCSB_inside > .mCSB_container {
+	margin-right:20px;
+}
+
+.mCSB_scrollTools .mCSB_draggerContainer {
+	margin-top:10px;
+}
+
+.mCSB_dragger_bar {
+	width:12px;
+	margin: 0;
 }
