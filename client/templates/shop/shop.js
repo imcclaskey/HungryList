@@ -7,30 +7,31 @@ Template.shop.onRendered(function() {
 	var offset = listHeight % 85;
 	console.log(offset);
 
-	//$('.buy-list').height(function (index, height) {
-	//	
-  //  return (height + 32);
-	//});
-
 	$('.buy-list').mCustomScrollbar({
 		theme:"inset-3-dark",
-		scrollInertia: 0,
+		scrollInertia: 600,
+		keyboard:{scrollType:"stepped"},
 		scrollButtons: { enable: false },
 		mouseWheel:{ scrollAmount: 85 },
-		callbacks:{
-      onTotalScroll: function(offset){
-      }
-		}
+		snapAmount:85,
+		advanced:{ updateOnContentResize: false }
 	});
 
 
 
 
-// item buttons expand
-  $(".btn-buy").mouseover(function () {  
+	// item buttons expand
+  $('.btn-buy').mouseover(function () {  
     $(this).find('.extend').stop().slideDown(100);
   }).mouseleave(function(){
     $(this).find('.extend').stop().slideUp(100);
-  
   })    
+
+  // buffer close
+  $('.btn-buy').mouseover(function () {  
+    $(this).parent().find('.buffer').stop().slideUp(100);
+  }).mouseleave(function(){
+    $(this).parent().find('.buffer').stop().slideDown(100);
+  })   
+
 });
