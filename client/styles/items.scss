@@ -1,0 +1,18 @@
+#edit-item {
+	background-color: tan;
+	>.row {
+		border-radius:20px;
+		display:table;
+		width:100%;
+
+		> div {
+			display:table-cell;
+			float:none;
+		}
+
+		> #item-save {
+			background-color:red;
+			border-radius:20px;
+		}
+	}
+}
