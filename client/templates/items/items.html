@@ -9,18 +9,122 @@
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
-						<h1>name</h1>
-						<h1>category</h1>
-						<h1>price</h1>
+
+						<form class="form-horizontal">
+							<fieldset>
+								<div class="control-group">
+								  <label class="control-label" for="name-input">Item Name</label>
+								  <div class="controls">
+								    <input id="item-name" name="name-input" type="text" placeholder="Name your item." class=" form-control" required="">
+								  </div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label" for="category-input">Category</label>
+									<div class="controls">
+										<div class="input-group input-append dropdown combobox" data-initialize="combobox" id="category-input">
+											<input id="item-category" type="text" class=" form-control" placeholder="Create or select a category." name="category-input" required="">
+											<div class="input-group-btn">
+												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+												<ul class="dropdown-menu dropdown-menu-right">
+													<li data-value="Essential"><a href="#">Essential</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="control-group">
+								  <label class="control-label" for="price-input">Text Input</label>
+								  <div class="controls">
+								    <input id="item-price" name="price-input" type="text" placeholder="Set price of item." class=" form-control" required="">  
+								  </div>
+								</div>
+
+							</fieldset>
+						</form>
+
 					</div>				
 					<div class="col-xs-12 col-sm-6">
-						color, suggestion, price
+						
+						<form class="form-horizontal">
+							<fieldset>
+
+								<!-- Multiple Radios (inline) -->
+								<div class="control-group">
+									<label class="control-label" for="label-colors">Label Color</label>
+
+									<div class="controls">
+										
+											<div class="radio-inline">
+								  			<label>
+								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio1" value="color1" aria-label="...">
+								  			</label>
+											</div>
+
+											<div class="radio-inline">
+								  			<label>
+								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio2" value="color2" aria-label="...">
+								  			</label>
+											</div>
+
+											<div class="radio-inline">
+								  			<label>
+								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio3" value="color3" aria-label="...">
+								  			</label>
+											</div>
+
+											<div class="radio-inline">
+								  			<label>
+								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio4" value="color4" aria-label="...">
+								  			</label>
+											</div>
+
+											<div class="radio-inline">
+								  			<label>
+								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio5" value="color5" aria-label="...">
+								  			</label>
+											</div>
+
+											<div class="radio-inline">
+								  			<label>
+								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio6" value="color6" aria-label="...">
+								  			</label>
+											</div>							
+										
+									</div>
+								</div>
+
+								<!-- Button -->
+								<div class="control-group">
+								  <div class="controls">
+								    <button id="suggestion-profile" name="suggestion-profile" class="btn btn-primary btn-block">Suggestion Profile</button>
+								  </div>
+								</div>
+
+								<!-- Button -->
+								<div class="control-group">
+								  <div class="controls">
+								    <button id="amazon-profile" name="amazon-profile" class="btn btn-warning btn-block">Amazon Product</button>
+								  </div>
+								</div>
+
+							</fieldset>
+						</form>
 					</div>
 				</div>
 			</div>
+
+
 			<div class="col-xs-12 col-sm-2">
-				add or save
+				<div class="control-group">
+				  <div class="controls">
+				    <button id="set-item" name="set-item" class="btn btn-success btn-lg">Set Item</button>
+				  </div>
+				</div>
 			</div>
+
+
 		</div>
 	</div>
 </template>
