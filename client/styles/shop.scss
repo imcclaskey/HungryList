@@ -22,7 +22,11 @@
 	padding-top: 150px;
 }
 
+
+
+
 .btn-buy {
+	opacity:100%;
 	width:100%;
 	display: block;
 	line-height: 1.33333;
@@ -31,8 +35,6 @@
 	background-color: #2C517D; //#337ab7
 	border-radius:10px;
 	@include all(.1s, ease-in-out);
-
-
 	.extend {
 		display:none;
 	}
@@ -42,15 +44,22 @@
 	}
 
 	.buy-left {
+		display:block;
+		opacity:100%;
 		overflow:hidden;
 		text-overflow: ellipsis;
 		font-size: 4rem;
 		color: #fff;
 		text-align:left;
+		@include all(.1s, ease-in-out);
+		transition-delay:.1s;
 	}
 
 	.buy-right {
-		@extend .buy-left;
+		overflow:hidden;
+		text-overflow: ellipsis;
+		font-size: 4rem;
+		color: #fff;
 		text-align:right;
 	}
 
@@ -62,7 +71,17 @@
 
 	.buy-under-right {
 		@extend .buy-under-left;
-		text-align:right
+		text-align:right;
+	}
+}
+
+// buy-shy pre load anim
+.btn-shy {
+	width: 0% !important;
+	opacity:0%;
+	.buy-left{
+		display:none;
+		opacity: 0;
 	}
 }
 
