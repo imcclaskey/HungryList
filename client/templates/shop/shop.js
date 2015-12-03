@@ -1,15 +1,9 @@
 Template.shop.onRendered(function() {
 
-
 	// scrollbar 
-	var listHeight = $('.buy-list')[0].scrollHeight;
-	console.log(listHeight);
-	var offset = listHeight % 85;
-	console.log(offset);
-
 	$('.buy-list').mCustomScrollbar({
 		theme:"inset-3-dark",
-		scrollInertia: 600,
+		scrollInertia: 0,
 		keyboard:{scrollType:"stepped"},
 		scrollButtons: { enable: false },
 		mouseWheel:{ scrollAmount: 85 },
