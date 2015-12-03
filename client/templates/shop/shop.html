@@ -2,205 +2,44 @@
 	<div id="shop" class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-md-8 col-lg-7">
-
+				
         <div class="row buy-list">
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left">Cheez-its</div>
-							<div class="col-xs-4 buy-right">90%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $3 </div>
-							<div class="col-xs-6 buy-under-right"> Snack </div>
-						</div>
-					</button>
 
-					<button type="button" class="btn btn-buy">
+        	<button type="button" class="btn btn-buy" style="width: 100%;">
 						<div class="row">
-							<div class="col-xs-8 buy-left">Tostitos</div>
-							<div class="col-xs-4 buy-right">80%</div>
+							<div class="col-xs-8 buy-left">test item</div>
+							<div class="col-xs-4 buy-right">50</div>
 						</div>
 						<div class="row extend">
 							<div class="col-xs-6 buy-under-left"> $2 </div>
-							<div class="col-xs-6 buy-under-right"> Snack </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left">Toilet paper</div>
-							<div class="col-xs-4 buy-right">70%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $12 </div>
 							<div class="col-xs-6 buy-under-right"> Essential </div>
 						</div>
 					</button>
 
-					<button type="button" class="btn btn-buy">
+        	{{ #each items }}
+					<button type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
 						<div class="row">
-							<div class="col-xs-8 buy-left">Paper towels</div>
-							<div class="col-xs-4 buy-right">60%</div>
+							<div class="col-xs-8 buy-left">{{name}}</div>
+							<div class="col-xs-4 buy-right">{{suggestion}}</div>
 						</div>
 						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $10 </div>
-							<div class="col-xs-6 buy-under-right"> Essential </div>
+							<div class="col-xs-6 buy-under-left"> ${{price}} </div>
+							<div class="col-xs-6 buy-under-right"> {{category}} </div>
 						</div>
 					</button>
+					{{/each}}
 
-					<button type="button" class="btn btn-buy">
+					<button type="button" class="btn btn-buy" style="width: 50%;">
 						<div class="row">
-							<div class="col-xs-8 buy-left">Earl Gray Tea</div>
-							<div class="col-xs-4 buy-right">50%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $5 </div>
-							<div class="col-xs-6 buy-under-right"> Grocery </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left">Clif Bars</div>
-							<div class="col-xs-4 buy-right">40%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $25 </div>
-							<div class="col-xs-6 buy-under-right"> General </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left"> Dr Pepper </div>
-							<div class="col-xs-4 buy-right">30%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $4 </div>
-							<div class="col-xs-6 buy-under-right"> Beverage </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left"> Wheatena </div>
-							<div class="col-xs-4 buy-right">20%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $3 </div>
-							<div class="col-xs-6 buy-under-right"> Breakfast </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left"> Ketchup </div>
-							<div class="col-xs-4 buy-right">10%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $3 </div>
-							<div class="col-xs-6 buy-under-right"> Grocery </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left">Cheez-its</div>
-							<div class="col-xs-4 buy-right">90%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $3 </div>
-							<div class="col-xs-6 buy-under-right"> Snack </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left">Tostitos</div>
-							<div class="col-xs-4 buy-right">80%</div>
+							<div class="col-xs-8 buy-left">test item</div>
+							<div class="col-xs-4 buy-right">0</div>
 						</div>
 						<div class="row extend">
 							<div class="col-xs-6 buy-under-left"> $2 </div>
-							<div class="col-xs-6 buy-under-right"> Snack </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left">Toilet paper</div>
-							<div class="col-xs-4 buy-right">70%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $12 </div>
 							<div class="col-xs-6 buy-under-right"> Essential </div>
 						</div>
 					</button>
 
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left">Paper towels</div>
-							<div class="col-xs-4 buy-right">60%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $10 </div>
-							<div class="col-xs-6 buy-under-right"> Essential </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left">Earl Gray Tea</div>
-							<div class="col-xs-4 buy-right">50%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $5 </div>
-							<div class="col-xs-6 buy-under-right"> Grocery </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left">Clif Bars</div>
-							<div class="col-xs-4 buy-right">40%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $25 </div>
-							<div class="col-xs-6 buy-under-right"> General </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left"> Dr Pepper </div>
-							<div class="col-xs-4 buy-right">30%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $4 </div>
-							<div class="col-xs-6 buy-under-right"> Beverage </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left"> Wheatena </div>
-							<div class="col-xs-4 buy-right">20%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $3 </div>
-							<div class="col-xs-6 buy-under-right"> Breakfast </div>
-						</div>
-					</button>
-
-					<button type="button" class="btn btn-buy">
-						<div class="row">
-							<div class="col-xs-8 buy-left"> Ketchup </div>
-							<div class="col-xs-4 buy-right">10%</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $3 </div>
-							<div class="col-xs-6 buy-under-right"> Grocery </div>
-						</div>
-					</button>
 					<div class="buffer"></div>
 
 				</div>

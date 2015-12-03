@@ -1,3 +1,11 @@
+Template.shop.helpers({
+
+	items: function () {
+   	return Items.find({}, {sort: {suggestion: -1}});
+  }
+
+});
+
 Template.shop.onRendered(function() {
 
 	// scrollbar 
@@ -10,9 +18,6 @@ Template.shop.onRendered(function() {
 		snapAmount:85,
 		advanced:{ updateOnContentResize: false }
 	});
-
-
-
 
 	// item buttons expand
   $('.btn-buy').mouseover(function () {  

@@ -1,20 +1,4 @@
-Template.items.helpers({
-
-	//itemsbysuggestion: function (suggestion) {
-  // 	var currentUserId = Meteor.userId();
-  //   	return Items.find({{sort: {suggestion: -1}});
-  // 	}
- 	//}
-
-});
-
-
-
-
-
 Template.items.events({
-
-
 
 	'click #set-item': function(event, template){
 		let name = template.find('#item-name').value;
@@ -24,9 +8,7 @@ Template.items.events({
 		let style =  Math.floor(suggestion/2+50);
 		style += "%";
 		console.log(suggestion);
-		$('#item-name').val('');
-		$('#item-category').val('');
-		$('#item-price').val('');
 		Meteor.call('setItem', name, category, price, suggestion, style);
 	}
+
 });
