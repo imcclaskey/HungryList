@@ -5,51 +5,31 @@
 				
         <div class="row buy-list">
 
-        	<button type="button" class="btn btn-buy" style="width: 100%;">
-						<div class="row">
-							<div class="col-xs-8 buy-left">test item</div>
-							<div class="col-xs-4 buy-right">50</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $2 </div>
-							<div class="col-xs-6 buy-under-right"> Essential </div>
-						</div>
-					</button>
-
-        	{{ #each items }}
-					<button type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
-						<div class="row">
-							<div class="col-xs-8 buy-left">{{name}}</div>
-							<div class="col-xs-4 buy-right">{{suggestion}}</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> ${{price}} </div>
-							<div class="col-xs-6 buy-under-right"> {{category}} </div>
-						</div>
-					</button>
-					{{/each}}
-
-					<button type="button" class="btn btn-buy" style="width: 50%;">
-						<div class="row">
-							<div class="col-xs-8 buy-left">test item</div>
-							<div class="col-xs-4 buy-right">0</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> $2 </div>
-							<div class="col-xs-6 buy-under-right"> Essential </div>
-						</div>
-					</button>
+					<div>
+	        			{{ #each items }}
+						<button type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
+							<div class="row">
+								<div class="col-xs-8 buy-left">{{name}}</div>
+								<div class="col-xs-4 buy-right">{{suggestion}}</div>
+							</div>
+							<div class="row extend">
+								<div class="col-xs-6 buy-under-left"> ${{price}} </div>
+								<div class="col-xs-6 buy-under-right"> {{category}} </div>
+							</div>
+						</button>
+						{{/each}}
+					</div>
 
 					<div class="buffer"></div>
 
 				</div>
 			</div>
 			<div class="col-md-4 col-lg-5 hidden-xs">
-			 	<div id="bag">
-        	<a rel="home" href="/" >
-            <img src="hungrylist-bag.svg">
-          </a>
-        </div>
+		 		<div id="bag">
+        			<a rel="home" href="#" >
+            			<img id="logo-bag" src="hungrylist-bag.svg">
+          			</a>
+        	</div>
       </div>
 		</div>
 	</div>

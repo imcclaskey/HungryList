@@ -12,7 +12,10 @@
 	}
 }
 
-
+#logo-bag {
+	position: absolute;
+	bottom:0;
+}
 
 .buy-list {
 	height: 100%;
@@ -26,9 +29,7 @@
 
 
 .btn-buy {
-	opacity:100%;
-	width:100%;
-	display: block;
+	display:block;
 	line-height: 1.33333;
 	margin-top: 10px;
 	padding: 10px 16px 10px 30px;
@@ -75,14 +76,9 @@
 	}
 }
 
-// buy-shy pre load anim
 .btn-shy {
+	opacity: 0;
 	width: 0% !important;
-	opacity:0%;
-	.buy-left{
-		display:none;
-		opacity: 0;
-	}
 }
 
 .buffer {

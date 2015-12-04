@@ -8,6 +8,25 @@ Template.shop.helpers({
 
 Template.shop.onRendered(function() {
 
+  var elements = $(document).find('.btn-buy');
+  var index = 0;
+
+  function throwBars() {
+    var timer = setInterval(function() {
+
+      elements.eq(index).removeClass('btn-shy');
+      index++;
+
+      if (index >= elements.length) {
+        clearInterval(timer);
+      }
+    }, 80);
+  };
+
+  setTimeout(throwBars);
+  clearInterval(throwBars);  
+  
+
 	// scrollbar 
 	$('.buy-list').mCustomScrollbar({
 		theme:"inset-3-dark",
@@ -18,6 +37,8 @@ Template.shop.onRendered(function() {
 		snapAmount:85,
 		advanced:{ updateOnContentResize: false }
 	});
+
+
 
 	// item buttons expand
   $('.btn-buy').mouseover(function () {  
@@ -31,6 +52,8 @@ Template.shop.onRendered(function() {
     $(this).parent().find('.buffer').stop().slideUp(100);
   }).mouseleave(function(){
     $(this).parent().find('.buffer').stop().slideDown(100);
-  })   
+  }) 
+
+
 
 });
