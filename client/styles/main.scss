@@ -147,6 +147,30 @@ body {
 
 /************************************
 *
+*   container fix
+*
+************************************/
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 1248px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1450px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/************************************
+*
 *   wall #1c1920 purple #111925 navy
 *
 ************************************/
