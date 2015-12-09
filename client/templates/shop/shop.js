@@ -49,9 +49,9 @@ Template.shop.onRendered(function() {
 
   // buffer close
   $('.btn-buy').mouseover(function () {  
-    $(this).parent().find('.buffer').stop().slideUp(100);
+    $(document).find('.buffer').stop().hide();
   }).mouseleave(function(){
-    $(this).parent().find('.buffer').stop().slideDown(100);
+    $(document).find('.buffer').stop().show();
   }) 
 
 
