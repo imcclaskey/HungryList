@@ -2,9 +2,10 @@ Meteor.startup( function() {
 
 	return Meteor.methods({
 
-		setItem: function (name, category, price, suggestion, style) {
+		setItem: function (userId, name, category, price, suggestion, style) {
 
 			let item = {
+				'userId': userId,
 				'name': name,
 				'category':category,
 				'price':price,

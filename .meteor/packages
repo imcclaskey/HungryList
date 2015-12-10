@@ -22,7 +22,6 @@ twbs:bootstrap
 iron:router
 accounts-base
 accounts-password
-ian:accounts-ui-bootstrap-3
 alexsmr:apac
 jasny:bootstrap
 liangcc:meteor-accounts-amazon
@@ -32,3 +31,4 @@ maazalik:malihu-jquery-custom-scrollbar
 exacttarget:fuelux
 msavin:mongol
 aldeed:collection2
+accounts-ui

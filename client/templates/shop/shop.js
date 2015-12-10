@@ -32,9 +32,11 @@ Template.shop.onRendered(function() {
 		advanced:{ updateOnContentResize: true }
 	});
 
-  // $('.buy-list').bind("DOMSubtreeModified",function(){
-  //   $('.buy-list').mCustomScrollbar("update");
-  // });
+  // set buy-list height
+  var htop = $('#buy-top').height();
+  var hwrap = $('#shop').height();
+  $('.buy-list').height(hwrap-htop-15);
+
 
 	// item buttons expand
   $('.btn-buy').mouseover(function () {  
@@ -57,7 +59,7 @@ Template.shop.onRendered(function() {
 Template.shop.helpers({
 
   items: function () {
-    return Items.find({}, {sort: {suggestion: -1}});
+    return Items.find( {userId: Meteor.userId() }, {sort: {suggestion: -1}});
   }
 
 });

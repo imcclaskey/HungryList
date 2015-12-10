@@ -2,6 +2,11 @@ Items = new Mongo.Collection("items");
 
 ItemSchema = new SimpleSchema({
 
+	"userId": {
+	    type: String,
+	    label: "Associated user ID."
+  	},
+
 	"name": {
 	    type: String,
 	    label: "Item name."
