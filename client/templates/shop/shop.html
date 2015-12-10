@@ -5,9 +5,9 @@
 				
         <div class="row buy-list">
 
-					<div>
+					<ul>
 	        			{{ #each items }}
-						<button type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
+						<li type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
 							<div class="row">
 								<div class="col-xs-8 buy-left">{{name}}</div>
 								<div class="buy-right">{{suggestion}}</div>
@@ -16,9 +16,9 @@
 								<div class="col-xs-6 buy-under-left"> ${{price}} </div>
 								<div class="col-xs-6 buy-under-right"> {{category}} </div>
 							</div>
-						</button>
+						</li>
 						{{/each}}
-					</div>
+					</ul>
 
 					<div class="buffer"></div>
 

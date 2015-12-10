@@ -1,3 +1,12 @@
+
+Template.items.onRendered(function() {
+
+	height = $('.item-fields').height();
+	$('#set-item').css("height",height);
+
+});
+
+
 Template.items.events({
 
 	'click #set-item': function(event, template){
