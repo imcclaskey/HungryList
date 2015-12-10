@@ -2,25 +2,35 @@
 	<div id="shop" class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-md-8 col-lg-7">
-				
-        <div class="row buy-list">
+				<div class="row">
+					<div class="col-xs-10">
+						<input id="filter-input" placeholder="Type to filter" autofocus>
+					</div>
 
-					<ul>
-	        			{{ #each items }}
-						<li type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
-							<div class="row">
-								<div class="col-xs-8 buy-left">{{name}}</div>
-								<div class="buy-right">{{suggestion}}</div>
-							</div>
-							<div class="row extend">
-								<div class="col-xs-6 buy-under-left"> ${{price}} </div>
-								<div class="col-xs-6 buy-under-right"> {{category}} </div>
-							</div>
-						</li>
-						{{/each}}
-					</ul>
+					<!-- <div class="col-xs-2">
+						<span id="filter-remove" class="glyphicon glyphicon-remove"></span>
+					</div> -->
+					
+				</div>
 
-					<div class="buffer"></div>
+        		<div class="row buy-list">
+        			<div class="col-xs-12">
+						<ul id="buy-list">
+		        			{{ #each items }}
+							<li type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
+								<div class="row">
+									<div class="col-xs-8 buy-left">{{name}}</div>
+									<div class="buy-right">{{suggestion}}</div>
+								</div>
+								<div class="row extend">
+									<div class="col-xs-6 buy-under-left"> ${{price}} </div>
+									<div class="col-xs-6 buy-under-right"> {{category}} </div>
+								</div>
+							</li>
+							{{/each}}
+						</ul>
+						
+					</div>
 
 				</div>
 			</div>

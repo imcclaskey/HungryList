@@ -1,11 +1,3 @@
-Template.shop.helpers({
-
-	items: function () {
-   	return Items.find({}, {sort: {suggestion: -1}});
-  }
-
-});
-
 Template.shop.onRendered(function() {
 
   var elements = $(document).find('.btn-buy');
@@ -25,8 +17,10 @@ Template.shop.onRendered(function() {
 
   setTimeout(throwBars);
   clearInterval(throwBars);  
-  
 
+  //live search
+  $('#filter-input').fastLiveFilter('#buy-list');  
+  
 	// scrollbar 
 	$('.buy-list').mCustomScrollbar({
 		theme:"inset-3-dark",
@@ -35,10 +29,12 @@ Template.shop.onRendered(function() {
 		scrollButtons: { enable: false },
 		mouseWheel:{ scrollAmount: 85 },
 		snapAmount:85,
-		advanced:{ updateOnContentResize: false }
+		advanced:{ updateOnContentResize: true }
 	});
 
-
+  // $('.buy-list').bind("DOMSubtreeModified",function(){
+  //   $('.buy-list').mCustomScrollbar("update");
+  // });
 
 	// item buttons expand
   $('.btn-buy').mouseover(function () {  
@@ -55,5 +51,13 @@ Template.shop.onRendered(function() {
   }) 
 
 
+
+});
+
+Template.shop.helpers({
+
+  items: function () {
+    return Items.find({}, {sort: {suggestion: -1}});
+  }
 
 });

@@ -15,14 +15,41 @@
 #logo-bag {
 	position: absolute;
 	bottom:0;
+	max-width:400px;
+	right:0;
+	left:0;
+	margin:auto;
 }
+
+#filter-input {
+	font-size: 6rem;
+    padding: 20px;
+    border: none;
+    color: #fff;
+    background-color: #1C1920;
+    width: 100%;
+
+    &:focus {
+    	outline-width:0;
+    }
+}
+
+#filter-remove {
+	font-size: 6rem;
+    padding: 20px;
+    border: none;
+    color: #fff;
+    background-color: #1C1920;
+    width: 100%;
+    float:right;
+}
+
 
 .buy-list {
 	height: 100%;
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
-	padding-top: 150px;
 }
 
 .btn-buy {

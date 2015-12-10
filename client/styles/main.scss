@@ -6,9 +6,9 @@ html, body {
   font-family: sans-serif;
 }
 
-body {
-  padding: 0 0 0 0;
-}
+// body {
+//   padding: 0 0 0 0;
+// }
 
 .wf-loading {
   visibility: hidden;
@@ -134,7 +134,7 @@ body {
 }
 
 @media (min-width: 992px) {
-  body {
+  .wall {
     padding: 0 0 0 250px;
   }
   .navmenu {
@@ -156,19 +156,19 @@ body {
 ************************************/
 
 @media (min-width: 768px) {
-  .container {
+  .container-fix {
     width: 750px;
   }
 }
 
 @media (min-width: 1248px) {
-  .container {
+  .container-fix {
     width: 970px;
   }
 }
 
 @media (min-width: 1450px) {
-  .container {
+  .container-fix {
     width: 1170px;
   }
 }
