@@ -64,9 +64,15 @@
 		display:none;
 	}
 
+
 	&:hover {
 		background-color: #4179BB;
 	}
+
+	> .row, .row-extend {
+		pointer-events:none;
+	}
+	
 
 	.buy-left {
 		display:block;

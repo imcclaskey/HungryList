@@ -29,7 +29,7 @@ Template.shop.onRendered(function() {
 		scrollButtons: { enable: false },
 		mouseWheel:{ scrollAmount: 85 },
 		snapAmount:85,
-		advanced:{ updateOnContentResize: true }
+		advanced:{ updateOnContentResize: false }
 	});
 
   // set buy-list height
@@ -58,8 +58,22 @@ Template.shop.onRendered(function() {
 
 Template.shop.helpers({
 
-  items: function () {
-    return Items.find( {userId: Meteor.userId() }, {sort: {suggestion: -1}});
+  unprimedItems: function () {
+    return Items.find( { $and: [ {userId: Meteor.userId() }, { "primed.bool": false }]}, {sort: {suggestion: -1}});
+  },
+
+  primedItems: function () {
+    return Items.find( { $and: [ {userId: Meteor.userId() }, { "primed.bool" : true }]}, {sort: {"primed.date": 1}});
+  }
+
+});
+
+
+Template.shop.events({
+
+  'click .btn-buy': function(event){
+    let id = $(event.target).attr('id');
+    Meteor.call('primeItem', id, true);
   }
 
 });

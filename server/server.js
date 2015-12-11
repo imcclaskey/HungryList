@@ -14,6 +14,10 @@ Meteor.startup( function() {
 			};
 
 		Items.insert(item);
+		},
+
+		primeItem: function (id, bool) {
+			Items.update( {_id:id}, {$set: {"primed.bool": bool}});
 		}
 	});
 });

@@ -16,8 +16,8 @@
         		<div class="row buy-list">
         			<div class="col-xs-12">
 						<ul id="buy-list">
-		        			{{ #each items }}
-							<li type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
+		        			{{ #each unprimedItems }}
+							<li id="{{_id}}" type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
 								<div class="row">
 									<div class="col-xs-8 buy-left">{{name}}</div>
 									<div class="buy-right">{{suggestion}}</div>
@@ -34,13 +34,31 @@
 
 				</div>
 			</div>
+
 			<div class="col-md-4 col-lg-5 hidden-xs">
+
+				<ul>
+				{{ #each primedItems }}
+					<li id="{{_id}}" type="button" class="btn btn-buy btn-block">
+						<div class="row">
+							<div class="col-xs-8 buy-left">{{name}}</div>
+							<div class="buy-right">{{suggestion}}</div>
+						</div>
+						<div class="row extend">
+							<div class="col-xs-6 buy-under-left"> ${{price}} </div>
+							<div class="col-xs-6 buy-under-right"> {{category}} </div>
+						</div>
+					</li>
+				{{ /each }}
+				</ul>
+
+
 		 		<div id="bag">
-        			<a rel="home" href="#" >
-            			<img id="logo-bag" src="hungrylist-bag.svg">
-          			</a>
-        	</div>
-      </div>
+	    			<a rel="home" href="#" >
+	        			<img id="logo-bag" src="hungrylist-bag.svg">
+	      			</a>
+	        	</div>
+      		</div>
 		</div>
 	</div>
 </template>

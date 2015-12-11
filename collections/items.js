@@ -22,6 +22,26 @@ ItemSchema = new SimpleSchema({
 	    label: "Item price."
 	},
 
+	"primed.bool": {
+		type: Boolean,
+		label: "Is in the cart, t/f",
+		defaultValue: false
+	},
+
+	"primed.date": {
+		type: Date,
+		label: "Date item primed",
+		optional: true,
+		autoValue: function() {
+	      	var primed = this.field("primed.bool");
+      		if (primed.isSet) {
+      			return new Date;	
+      		} else {
+        		this.unset();
+      		}
+      	}
+    },
+
 	"suggestion": {
 		type: Number,
 		label: "Suggestion percentage (test with random number)"
