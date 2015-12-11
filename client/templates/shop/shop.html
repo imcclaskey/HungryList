@@ -21,11 +21,11 @@
 							<li id="{{_id}}" type="button" class="btn btn-buy" style="width: {{style}};">
 								<div class="row">
 									<div class="col-xs-8 buy-left">{{name}}</div>
-									<div class="buy-right">{{suggestion}}</div>
+									<div class="buy-right">{{priority}}</div>
 								</div>
 								<div class="row extend">
-									<div class="col-xs-6 buy-under-left"> ${{price}} </div>
-									<div class="col-xs-6 buy-under-right"> {{category}} </div>
+									<div class="col-xs-6 buy-under-left"> {{category}}, ${{price}} </div>
+									<div class="col-xs-6 buy-under-right"> {{suggestion}}% Gone </div>
 								</div>
 							</li>
 							{{/each}}
@@ -38,7 +38,7 @@
 
 			<div class="col-md-4 col-lg-5 hidden-xs">
 
-				<ul>
+				<ul id="cart-list">
 					{{ #each primedItems }}
 					<li id="{{_id}}" type="button" class="btn btn-cart">
 						<div class="row">

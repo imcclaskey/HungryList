@@ -2,31 +2,25 @@
 	<div id ="item-details" class="container container-fix">
 		<div class="row">
 			<div class="col-xs-12 col-sm-9 item-fields">
-				<div class="row">
-					<div class="col-xs-12">
-						<h1>Add or Edit an Item</h1>
-					</div>
-				</div>
+				
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
 
-						<form class="form-horizontal">
+						<form id="form" class="form-horizontal">
 							<fieldset>
 								<div class="control-group">
-								  <label class="control-label" for="name-input">Item Name</label>
 								  <div class="controls">
-								    <input id="item-name" name="name-input" type="text" placeholder="Name your item." class=" form-control" required="">
+								    <input id="itemName" name="name-input" type="text" placeholder="Name your item." class=" form-control" required>
 								  </div>
 								</div>
 
 								<div class="control-group">
-									<label class="control-label" for="category-input">Category</label>
 									<div class="controls">
 										<div class="input-group input-append dropdown combobox" data-initialize="combobox" id="category-input">
-											<input id="item-category" type="text" class=" form-control" placeholder="Create or select a category." name="category-input" required="">
+											<input id="itemCategory" type="text" class=" form-control" placeholder="Create/Select Category." name="category-input" required>
 											<div class="input-group-btn">
-												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-												<ul class="dropdown-menu dropdown-menu-right">
+												<button id="category-dropdown-button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+												<ul id="category-dropdown" class="dropdown-menu dropdown-menu-right">
 													{{ #each categories }}
 													<li data-value="Essential"><a href="#">{{this}}</a></li>
 													
@@ -38,9 +32,8 @@
 								</div>
 
 								<div class="control-group">
-								  <label class="control-label" for="price-input">Price</label>
 								  <div class="controls">
-								    <input id="item-price" name="price-input" type="text" placeholder="Set price of item." class=" form-control" required="">  
+								    <input type="text" id="itemPrice" name="price-input" placeholder="Set price of item." class="form-control" required>  
 								  </div>
 								</div>
 
@@ -53,62 +46,47 @@
 						<form class="form-horizontal">
 							<fieldset>
 
-								<!-- Multiple Radios (inline) -->
-								<div class="control-group">
-									<label class="control-label" for="label-colors">Label Color</label>
+								<div class="row">
 
-									<div class="controls">
-										
-											<div class="radio-inline">
-								  			<label>
-								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio1" value="color1" aria-label="...">
-								  			</label>
-											</div>
-
-											<div class="radio-inline">
-								  			<label>
-								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio2" value="color2" aria-label="...">
-								  			</label>
-											</div>
-
-											<div class="radio-inline">
-								  			<label>
-								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio3" value="color3" aria-label="...">
-								  			</label>
-											</div>
-
-											<div class="radio-inline">
-								  			<label>
-								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio4" value="color4" aria-label="...">
-								  			</label>
-											</div>
-
-											<div class="radio-inline">
-								  			<label>
-								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio5" value="color5" aria-label="...">
-								  			</label>
-											</div>
-
-											<div class="radio-inline">
-								  			<label>
-								    			<input type="radio" name="inlineradioOptions" id="blankRadio inlineRadio6" value="color6" aria-label="...">
-								  			</label>
-											</div>							
-										
+									<div class="col-xs-3 item-color">
+										<div id="color-1" class="color-box">
+											<span></span>
+										</div>
 									</div>
+
+									<div class="col-xs-3 item-color">
+										<div id="color-2" class="color-box">
+											<span></span>
+										</div>
+									</div>
+
+									<div class="col-xs-3 item-color">
+										<div id="color-3" class="color-box">
+											<span></span>
+										</div>
+									</div>
+
+									<div class="col-xs-3 item-color">
+										<div id="color-4" class="color-box">
+											<span></span>
+										</div>
+									</div>
+
+
 								</div>
+								
 
 								<!-- Button -->
 								<div class="control-group">
 								  <div class="controls">
-								    <button id="suggestion-profile" name="suggestion-profile" class="btn btn-primary btn-block">Suggestion Profile</button>
+								    <button id="suggestion-profile" name="suggestion-profile" class="btn btn-block">Suggestion Profile &raquo;</button>
 								  </div>
 								</div>
 
 								<!-- Button -->
 								<div class="control-group">
 								  <div class="controls">
-								    <button id="amazon-profile" name="amazon-profile" class="btn btn-warning btn-block">Amazon Product</button>
+								    <button id="amazon-profile" name="amazon-profile" class="btn btn-block">Amazon Product &raquo;</button>
 								  </div>
 								</div>
 
@@ -122,7 +100,7 @@
 			<div class="col-xs-12 col-sm-3 item-accept">
 				<div class="control-group">
 				  <div class="controls">
-				    <button id="set-item" name="set-item" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-plus"></span></button>
+				    <button type="submit" form="form" id="set-item" name="set-item" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span></button>
 				  </div>
 				</div>
 			</div>

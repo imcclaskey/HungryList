@@ -18,5 +18,5 @@ Router.route('/items', function () {
 
 //catchall
 Router.route('/(.*)', function () {
-    this.redirect('/notfound');
+    this.redirect('/shop');
 });

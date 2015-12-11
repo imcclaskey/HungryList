@@ -39,8 +39,8 @@ Template.shop.onRendered(function() {
   var hwrap = $('#shop').height();
   $('.buy-list').height(hwrap-htop-15);
 
-  // item buttons expand
-  let extend = function() {
+  // item buttons extend
+  var extend = function() {
     $('.btn-buy').mouseover(function () {  
       $(this).find('.extend').stop().slideDown(100);
     }).mouseleave(function(){
@@ -49,6 +49,10 @@ Template.shop.onRendered(function() {
   };
 
   $("#buy-list").bind("DOMSubtreeModified", extend);
+  $("#buy-list").bind("DOMSubtreeModified", function() {
+
+    $('input#filter-input').fastLiveFilter();
+  });
   $('.btn-buy').mouseover(extend);
 
 
@@ -63,6 +67,17 @@ Template.shop.onRendered(function() {
 
 
 Template.shop.helpers({
+
+  priority: function() {
+    let suggestion = this.suggestion;
+    if (suggestion > 75) {
+      return "High";
+    } else if (suggestion > 50) {
+      return "Med";
+    } else if (suggestion <=50) {
+      return "Low";
+    }
+  },
 
   unprimedItems: function () {
     return Items.find( { $and: [ {userId: Meteor.userId() }, { "primed.bool": false }]}, {sort: {suggestion: -1}});
@@ -81,6 +96,8 @@ Template.shop.helpers({
     return total.toFixed(2);
   }
 
+
+
 });
 
 
@@ -95,6 +112,5 @@ Template.shop.events({
     let id = $(event.target).attr('id');
     Meteor.call('primeItem', id, false);
   },
-
 
 });

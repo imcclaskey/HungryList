@@ -47,7 +47,6 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 				}
 			}
 		}
-		$('.buy-list').mCustomScrollbar("update");
 		callback(numShown);
 		// var endTime = new Date().getTime();
 		// console.log('Search for ' + filter + ' took: ' + (endTime - startTime) + ' (' + numShown + ' results)');
@@ -60,6 +59,5 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 			input.change();
 		}, timeout);
 	});
-
 	return this; // maintain jQuery chainability
 }
