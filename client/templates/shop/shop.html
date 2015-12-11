@@ -3,6 +3,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-8 col-lg-7">
 				<div id="buy-top" class="row">
+
 					<div class="col-xs-10">
 						<input id="filter-input" placeholder="Type to filter" autofocus>
 					</div>
@@ -17,7 +18,7 @@
         			<div class="col-xs-12">
 						<ul id="buy-list">
 		        			{{ #each unprimedItems }}
-							<li id="{{_id}}" type="button" class="btn btn-buy btn-shy" style="width: {{style}};">
+							<li id="{{_id}}" type="button" class="btn btn-buy" style="width: {{style}};">
 								<div class="row">
 									<div class="col-xs-8 buy-left">{{name}}</div>
 									<div class="buy-right">{{suggestion}}</div>
@@ -29,29 +30,26 @@
 							</li>
 							{{/each}}
 						</ul>
-						
+						<div class="buffer"></div>
 					</div>
-
 				</div>
+
 			</div>
 
 			<div class="col-md-4 col-lg-5 hidden-xs">
 
 				<ul>
-				{{ #each primedItems }}
-					<li id="{{_id}}" type="button" class="btn btn-buy btn-block">
+					{{ #each primedItems }}
+					<li id="{{_id}}" type="button" class="btn btn-cart">
 						<div class="row">
 							<div class="col-xs-8 buy-left">{{name}}</div>
-							<div class="buy-right">{{suggestion}}</div>
-						</div>
-						<div class="row extend">
-							<div class="col-xs-6 buy-under-left"> ${{price}} </div>
-							<div class="col-xs-6 buy-under-right"> {{category}} </div>
+							<div class="buy-right">${{price}}</div>
 						</div>
 					</li>
-				{{ /each }}
+					{{ /each }}
 				</ul>
 
+				<div class="cart-total"> Total: ${{ primedTotal }} </div>
 
 		 		<div id="bag">
 	    			<a rel="home" href="#" >

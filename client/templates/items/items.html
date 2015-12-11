@@ -27,7 +27,10 @@
 											<div class="input-group-btn">
 												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
 												<ul class="dropdown-menu dropdown-menu-right">
-													<li data-value="Essential"><a href="#">Essential</a></li>
+													{{ #each categories }}
+													<li data-value="Essential"><a href="#">{{this}}</a></li>
+													
+													{{ /each }}
 												</ul>
 											</div>
 										</div>
@@ -35,7 +38,7 @@
 								</div>
 
 								<div class="control-group">
-								  <label class="control-label" for="price-input">Text Input</label>
+								  <label class="control-label" for="price-input">Price</label>
 								  <div class="controls">
 								    <input id="item-price" name="price-input" type="text" placeholder="Set price of item." class=" form-control" required="">  
 								  </div>

@@ -3,6 +3,8 @@ Template.shop.onRendered(function() {
   var elements = $(document).find('.btn-buy');
   var index = 0;
 
+  $('.btn-buy').each(function() {$(this).addClass('btn-shy')});
+
   function throwBars() {
     var timer = setInterval(function() {
 
@@ -29,7 +31,7 @@ Template.shop.onRendered(function() {
 		scrollButtons: { enable: false },
 		mouseWheel:{ scrollAmount: 85 },
 		snapAmount:85,
-		advanced:{ updateOnContentResize: false }
+		advanced:{ updateOnContentResize: true }
 	});
 
   // set buy-list height
@@ -37,13 +39,18 @@ Template.shop.onRendered(function() {
   var hwrap = $('#shop').height();
   $('.buy-list').height(hwrap-htop-15);
 
+  // item buttons expand
+  let extend = function() {
+    $('.btn-buy').mouseover(function () {  
+      $(this).find('.extend').stop().slideDown(100);
+    }).mouseleave(function(){
+      $(this).find('.extend').stop().slideUp(100);
+    }) 
+  };
 
-	// item buttons expand
-  $('.btn-buy').mouseover(function () {  
-    $(this).find('.extend').stop().slideDown(100);
-  }).mouseleave(function(){
-    $(this).find('.extend').stop().slideUp(100);
-  })    
+  $("#buy-list").bind("DOMSubtreeModified", extend);
+  $('.btn-buy').mouseover(extend);
+
 
   // buffer close
   $('.btn-buy').mouseover(function () {  
@@ -52,9 +59,8 @@ Template.shop.onRendered(function() {
     $(document).find('.buffer').stop().show();
   }) 
 
-
-
 });
+
 
 Template.shop.helpers({
 
@@ -64,6 +70,15 @@ Template.shop.helpers({
 
   primedItems: function () {
     return Items.find( { $and: [ {userId: Meteor.userId() }, { "primed.bool" : true }]}, {sort: {"primed.date": 1}});
+  },
+
+  primedTotal : function() {
+    let total = 0;
+    let primed = Items.find( { $and: [ {userId: Meteor.userId() }, { "primed.bool" : true }]}, {sort: {"primed.date": 1}});
+    primed.forEach(function(item) {
+      total += item.price;
+    });
+    return total.toFixed(2);
   }
 
 });
@@ -74,6 +89,12 @@ Template.shop.events({
   'click .btn-buy': function(event){
     let id = $(event.target).attr('id');
     Meteor.call('primeItem', id, true);
-  }
+  },
+
+  'click .btn-cart': function(event){
+    let id = $(event.target).attr('id');
+    Meteor.call('primeItem', id, false);
+  },
+
 
 });

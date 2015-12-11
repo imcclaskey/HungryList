@@ -19,6 +19,7 @@ ItemSchema = new SimpleSchema({
 
 	"price": {
 	    type: Number,
+	    decimal: true,
 	    label: "Item price."
 	},
 
