@@ -33,7 +33,7 @@
 
 								<div class="control-group">
 								  <div class="controls">
-								    <input type="text" id="itemPrice" name="price-input" placeholder="Set price of item." class="form-control" required>  
+								    <input type="number" min="0" id="itemPrice" name="price-input" placeholder="Set price of item." class="form-control" required>
 								  </div>
 								</div>
 
@@ -47,36 +47,33 @@
 							<fieldset>
 
 								<div class="row">
+									<div class="col-xs-3 text-center color-box">
+										<input id="color-1" class="item-color" type="radio" name="color" value="#2C517D" checked="checked" />
+										<label class="label-1 color-label" for="color-1"></label>
+									</div>
 
-									<input id="color-1" class="col-xs-3 item-color" type="checkbox" name="color-1" />
+									<div class="col-xs-3 text-center color-box">
+										<input id="color-2" class="item-color" type="radio" name="color" value="#D35B5B" />
+										<label class="label-2 color-label" for="color-2"></label>
+									</div>
 
+									<div class="col-xs-3 text-center color-box">
+										<input id="color-3" class="item-color" type="radio" name="color" value="#B29F59" />
+										<label class="label-3 color-label" for="color-3"></label>
+									</div>
 
-									<!-- <div class="col-xs-3 item-color">
-										<div id="color-1" class="color-box">
-											<span></span>
-										</div>
-									</div> -->
-
-									<input id="color-2" class="col-xs-3 item-color" type="checkbox" name="color-2" />
-
-									<input id="color-3" class="col-xs-3 item-color" type="checkbox" name="color-3" />
-
-
-									<input id="color-4" class="col-xs-3 item-color" type="checkbox" name="color-4" />
-
-
-
+									<div class="col-xs-3 text-center color-box">
+										<input id="color-4" class="item-color" type="radio" name="color" value="#977BA9" />
+										<label class="label-4 color-label" for="color-4"></label>
+									</div>
 								</div>
-								
 
-								<!-- Button -->
 								<div class="control-group">
 								  <div class="controls">
 								    <button id="suggestion-profile" name="suggestion-profile" class="btn btn-block">Suggestion Profile &raquo;</button>
 								  </div>
 								</div>
 
-								<!-- Button -->
 								<div class="control-group">
 								  <div class="controls">
 								    <button id="amazon-profile" name="amazon-profile" class="btn btn-block">Amazon Product &raquo;</button>

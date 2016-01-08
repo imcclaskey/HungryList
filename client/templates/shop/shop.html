@@ -18,7 +18,7 @@
         			<div class="col-xs-12">
 						<ul id="buy-list">
 		        			{{ #each unprimedItems }}
-							<li id="{{_id}}" type="button" class="btn btn-buy" style="width: {{style}};">
+							<li id="{{_id}}" type="button" class="btn btn-buy" style="width: {{style.suggestion}}; background-color: {{style.color}}">
 								<div class="row">
 									<div class="col-xs-8 buy-left">{{name}}</div>
 									<div class="buy-right">{{priority}}</div>
@@ -40,7 +40,7 @@
 
 				<ul id="cart-list">
 					{{ #each primedItems }}
-					<li id="{{_id}}" type="button" class="btn btn-cart">
+					<li id="{{_id}}" type="button" class="btn btn-cart" style="background-color: {{style.color}}">
 						<div class="row">
 							<div class="col-xs-8 buy-left">{{name}}</div>
 							<div class="buy-right">${{price}}</div>

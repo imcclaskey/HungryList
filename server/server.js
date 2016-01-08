@@ -2,18 +2,18 @@ Meteor.startup( function() {
 
 	return Meteor.methods({
 
-		setItem: function (userId, name, category, price, suggestion, style) {
+		setItem: function (userId, name, category, price, color, suggestion) {
 
 			let item = {
-				'userId': userId,
-				'name': name,
-				'category':category,
-				'price':price,
-				'suggestion':suggestion,
-				'style':style
+				userId: userId,
+				name: name,
+				category:category,
+				price:price,
+				style:{ color: color },
+				suggestion:suggestion
 			};
-
-		Items.insert(item);
+			console.log(item);
+			Items.insert(item);
 		},
 
 		primeItem: function (id, bool) {

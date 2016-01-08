@@ -45,14 +45,27 @@ ItemSchema = new SimpleSchema({
 
 	"suggestion": {
 		type: Number,
-		label: "Suggestion percentage (test with random number)"
+		label: "Item Suggestion (1-100)"
 	},
 
-	"style": {
+	"style.suggestion": {
 		type: String,
-		label: "Style value in percentage format for inline width setting"
+		label: "Item Suggestion (style percentage)",
+		optional: true,
+		autoValue: function() {
+			var suggestion = this.field("suggestion");
+			console.log(suggestion);
+			if (suggestion.isSet && suggestion.operator !== "$unset") {
+				return Math.floor(suggestion.value/2+50) + "%";
+			}
+		}
 	},
-	
-	});
+
+	"style.color": {
+		type: String,
+		label: "Item color (style hex)"
+	}
+
+});
 
 Items.attachSchema( ItemSchema );
