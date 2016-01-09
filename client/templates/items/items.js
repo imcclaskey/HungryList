@@ -56,6 +56,10 @@ Template.items.events({
 
 		console.log(suggestion);
 		Meteor.call('setItem', userId, name, category, price, color, suggestion);
+
+		$('#itemName').val("");
+		$('#itemCategory').val("");
+		$('#itemPrice').val("");
 	}
 
 });

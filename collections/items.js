@@ -54,7 +54,6 @@ ItemSchema = new SimpleSchema({
 		optional: true,
 		autoValue: function() {
 			var suggestion = this.field("suggestion");
-			console.log(suggestion);
 			if (suggestion.isSet && suggestion.operator !== "$unset") {
 				return Math.floor(suggestion.value/2+50) + "%";
 			}
@@ -64,6 +63,27 @@ ItemSchema = new SimpleSchema({
 	"style.color": {
 		type: String,
 		label: "Item color (style hex)"
+	},
+
+	"created": {
+	  	type: Date,
+	  	label: "Date Task Added to System",
+	  	denyUpdate: true,
+	  	autoValue: function() {
+	    	if ( this.isInsert ) {
+	      		return new Date;
+      		}
+		}
+  	},
+
+	"updated": {
+	    type: Date,
+	    label: "Date Task Updated in System",
+	    autoValue: function() {
+	    	if ( this.isUpdate || this.isInsert ) {
+		      	return new Date;
+		    }
+	    }
 	}
 
 });
