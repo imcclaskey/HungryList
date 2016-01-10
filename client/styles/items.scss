@@ -57,7 +57,10 @@ input.error{
 	}
 
 	input[type=radio] {
-		display:none;
+		position:absolute;
+		width: 1px;
+		height: 1px;
+		opacity: 0;
 	}
 
 	@mixin color-radio($color) {
@@ -102,10 +105,14 @@ input.error{
 	    color: #FFFFFF;
 	    font-size: 100px;
 	    text-align: center;
-	    line-height: 66%;
+	    line-height: 65%;
 	    top: 0px;
 	    left: 31px;
 
+	}
+
+	input[type=radio]:focus + label:before {
+		border: 1px solid #fff;
 	}
 
 	#suggestion-profile {

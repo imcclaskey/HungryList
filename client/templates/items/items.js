@@ -1,3 +1,8 @@
+Template.items.onCreated(function(){
+
+  this.newItem = new ReactiveVar( "glyphicon-plus" );
+
+});
 
 Template.items.onRendered(function() {
 
@@ -39,11 +44,25 @@ Template.items.onRendered(function() {
 
 Template.items.events({
 
+	'change #itemName': function( event, template ) {
+
+		console.log($(event.target).val());
+		let name = $(event.target).val()
+		var item = Items.findOne({userId: Meteor.userId(), "name": name});
+
+	    if ( item ) {
+	      template.newItem.set( "glyphicon-ok" );
+	    } else {
+	      template.newItem.set( "glyphicon-plus" );
+	    }
+  	},
+
 	'submit form': function(event, template){
 		event.preventDefault();
 		let userId = Meteor.userId();
 
 		let name = template.find('#itemName').value;
+
 
 		let category = template.find('#itemCategory').value;
 
@@ -55,6 +74,8 @@ Template.items.events({
 		let suggestion = Math.floor((Math.random() * 100) + 1);
 
 		console.log(suggestion);
+  		
+
 		Meteor.call('setItem', userId, name, category, price, color, suggestion);
 
 		$('#itemName').val("");
@@ -73,6 +94,10 @@ Template.items.helpers({
 		return x.category;
 		}), true);
 		return categories
-	}
+	},
+
+	plusOrCheck: function() {
+	    return Template.instance().newItem.get();
+  	}
 
 });
