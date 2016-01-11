@@ -36,6 +36,7 @@ input.error{
 
 	.item-accept {
 		padding-left: 0px;
+		padding-right: 0px;
 	}
 
 	#set-item {
@@ -49,6 +50,11 @@ input.error{
 
 		&:hover {
 			background-color: #00D672;
+		}
+
+		#set-icon {
+			display: block;
+			top: 0px;
 		}
 
 		#set-popup {

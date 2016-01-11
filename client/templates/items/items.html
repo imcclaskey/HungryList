@@ -22,8 +22,7 @@
 												<button id="category-dropdown-button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
 												<ul id="category-dropdown" class="dropdown-menu dropdown-menu-right">
 													{{ #each categories }}
-													<li data-value="Essential"><a href="#">{{this}}</a></li>
-													
+													<li data-value="{{this}}"><a href="#">{{this}}</a></li>
 													{{ /each }}
 												</ul>
 											</div>
@@ -67,7 +66,11 @@
 									</div>
 								</div>
 
-								<div class="control-group">
+								
+
+							</fieldset>
+						</form>
+						<div class="control-group">
 								  <div class="controls">
 								    <button id="suggestion-profile" name="suggestion-profile" class="btn btn-block">Suggestion Profile &raquo;</button>
 								  </div>
@@ -78,10 +81,7 @@
 								    <button id="amazon-profile" name="amazon-profile" class="btn btn-block">Amazon Product &raquo;</button>
 								  </div>
 								</div>
-
-							</fieldset>
-						</form>
-					</div>
+						</div>
 
 				</div>
 			</div>
@@ -99,4 +99,33 @@
 			</div>
 		</div>
 	</div>
+
+
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-3 col-lg-3">
+
+				<div class="well">
+					<div class="list-group">
+						{{ #each categories }}
+							<button type="button" id="{{this}}" class="list-group-item item-category-filter">{{this}}</button>
+						{{ /each }}
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-9 col-md-9 col-lg-9">
+				<div class="well">
+					<div class="list-group">
+						{{#each tasksFilter}}
+							<a href="/tasks/{{slug}}"> <button type="button" class="list-group-item">{{name}}</button></a>
+						{{/each}}
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
 </template>

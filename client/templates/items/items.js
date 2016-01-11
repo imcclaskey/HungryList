@@ -1,5 +1,6 @@
 Template.items.onCreated(function(){
 
+	Session.set('itemCategory', "");
 	this.insOrUpd = new ReactiveVar( "Added" );
   	this.plusOrCheck = new ReactiveVar( "glyphicon-plus" );
 
@@ -15,6 +16,10 @@ Template.items.onRendered(function() {
             //element.val(error[0].outerText);
             return false;
         },
+
+        invalidHandler: function(event, validator) {
+        	$('#set-icon').effect("shake");
+	  	},
         
 	    rules: {
 	      	itemName: {
@@ -36,10 +41,30 @@ Template.items.onRendered(function() {
    		$(this).select();
    	});
 
-   	// $("#itemPrice").change(function() {
-   	// 	let val = $(this).value;
-   	// 	val = "$" + val;
-   	// });
+});
+
+Template.items.helpers({
+
+	items: function() {
+		Items.find({userId: Meteor.userId()});
+	},
+
+  	categories: function() {
+  		let categories = _.uniq(Items.find({userId: Meteor.userId()}, {
+		sort: {category: 1}, fields: {category: true}
+		}).fetch().map(function(x) {
+		return x.category;
+		}), true);
+		return categories
+	},
+
+	plusOrCheck: function() {
+	    return Template.instance().plusOrCheck.get();
+  	},
+
+  	insOrUpd: function() {
+  		return Template.instance().insOrUpd.get();
+  	}
 
 });
 
@@ -95,27 +120,18 @@ Template.items.events({
 		$('#itemCategory').val("");
 		$('#itemPrice').val("");
 
-	}
-
-});
-
-Template.items.helpers({
-
-  	categories: function() {
-  		var categories = _.uniq(Items.find({userId: Meteor.userId()}, {
-		sort: {category: 1}, fields: {category: true}
-		}).fetch().map(function(x) {
-		return x.category;
-		}), true);
-		return categories
 	},
 
-	plusOrCheck: function() {
-	    return Template.instance().plusOrCheck.get();
-  	},
+	"click .item-category-filter":function(event, template){
 
-  	insOrUpd: function() {
-  		return Template.instance().insOrUpd.get();
+	    if(!(Session.equals('itemCategory', event.currentTarget.id))){
+	      	Session.set('itemCategory', event.currentTarget.id);
+	      	$('.item-category-filter').removeClass("active");
+	      	$(event.currentTarget).addClass("active");
+	    } else {
+	      	Session.set('itemCategory', '');
+	      	$('.item-category-filter').removeClass("active");
+	    }
   	}
 
 });

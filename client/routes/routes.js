@@ -1,19 +1,28 @@
 Router.onBeforeAction(function() {
   if (! Meteor.userId()) {
     this.render('login');
+    this.layout(null);
   } else {
     this.next();
   }
 });
 
-Router.route('/shop', function () {
-  this.render('shop');
-  this.layout('layout');
+Router.route('/shop', {
+  name: "shop",
+  template: "shop",
+  layoutTemplate: "layout",
+  subscriptions: function() {
+    return Meteor.subscribe('items', Meteor.userId());
+  }
 });
 
-Router.route('/items', function () {
-  this.render('items');
-  this.layout('layout');
+Router.route('/items', {
+  name: "items",
+  template: "items",
+  layoutTemplate: "layout",
+  subscriptions: function() {
+    return Meteor.subscribe('items', Meteor.userId());
+  }
 });
 
 //catchall
