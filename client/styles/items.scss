@@ -45,9 +45,18 @@ input.error{
 		border-bottom-left-radius: 0;
 		background-color: #17B26A;
 		font-size: 7rem;
+		white-space:normal;
 
 		&:hover {
 			background-color: #00D672;
+		}
+
+		#set-popup {
+		    font-family: ff-nuvo-web-pro;
+    		font-weight: 800;
+    		font-size: 5rem;
+    		letter-spacing: 2px;
+    		display: none;
 		}
 	}
 

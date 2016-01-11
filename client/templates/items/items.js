@@ -1,6 +1,7 @@
 Template.items.onCreated(function(){
 
-  this.newItem = new ReactiveVar( "glyphicon-plus" );
+	this.insOrUpd = new ReactiveVar( "Added" );
+  	this.plusOrCheck = new ReactiveVar( "glyphicon-plus" );
 
 });
 
@@ -45,15 +46,15 @@ Template.items.onRendered(function() {
 Template.items.events({
 
 	'change #itemName': function( event, template ) {
-
-		console.log($(event.target).val());
 		let name = $(event.target).val()
 		var item = Items.findOne({userId: Meteor.userId(), "name": name});
 
 	    if ( item ) {
-	      template.newItem.set( "glyphicon-ok" );
+	    	template.insOrUpd.set( "Updated" );
+	      	template.plusOrCheck.set( "glyphicon-ok" );
 	    } else {
-	      template.newItem.set( "glyphicon-plus" );
+	    	template.insOrUpd.set( "Added" );
+	      	template.plusOrCheck.set( "glyphicon-plus" );
 	    }
   	},
 
@@ -77,10 +78,14 @@ Template.items.events({
   		
 
 		Meteor.call('setItem', userId, name, category, price, color, suggestion);
+		$('#set-icon').hide(0).delay(1050).show(0);
+		$('#set-popup').show().delay(600).fadeOut(400);
 
+		template.plusOrCheck.set("glyphicon-plus");
 		$('#itemName').val("");
 		$('#itemCategory').val("");
 		$('#itemPrice').val("");
+
 	}
 
 });
@@ -97,7 +102,11 @@ Template.items.helpers({
 	},
 
 	plusOrCheck: function() {
-	    return Template.instance().newItem.get();
+	    return Template.instance().plusOrCheck.get();
+  	},
+
+  	insOrUpd: function() {
+  		return Template.instance().insOrUpd.get();
   	}
 
 });

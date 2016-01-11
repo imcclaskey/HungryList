@@ -1,4 +1,4 @@
-<template name="login">
+<!-- <template name="login">
 
 	<div style="background-color:#1C1920; height:100%;">
 
@@ -12,4 +12,38 @@
 		</div> 
 	</div>
 
+</template> -->
+
+<template name="login">
+	<div id="login">
+		<img id="logo-bot" src="hungrylist-mouth.svg">
+	    <div class="flex-container">
+	        <div class="login-form">
+	        	<h1> Welcome to <span>Hungrylist.</span> </h1>
+	            <form class="form-horizontal">
+	                <span id="error-message"></span>
+	                <br>
+	                <div class="form-group">
+	                    <label for="input-email" class="col-xs-12 label-login">Email</label>
+	                    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+	                        <input type="email" required class="form-control input-login" id="input-email" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+	                    </div>
+	                </div>
+	                <div class="form-group">
+	                    <label for="input-password" class="col-xs-12 label-login">Password</label>
+	                    <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+	                        <input type="password" required class="form-control input-login" id="input-password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+	                    </div>
+	                </div>
+	                <div class="form-group">
+	                    <div class="col-sm-12">
+	                        <button class="btn btn-default btn-lg" id="login-button">Login</button>
+	                        <button class="btn btn-default btn-lg" id="register-button">Register</button>
+	                    </div>
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	   	
+	</div>
 </template>
