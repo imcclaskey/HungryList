@@ -46,7 +46,9 @@ Template.items.onRendered(function() {
 Template.items.events({
 
 	'change #itemName': function( event, template ) {
-		let name = $(event.target).val()
+
+		let name = toTitleCase($(event.target).val());
+		$(event.target).val(name); 
 		var item = Items.findOne({userId: Meteor.userId(), "name": name});
 
 	    if ( item ) {
@@ -58,12 +60,19 @@ Template.items.events({
 	    }
   	},
 
+  	'change #itemCategory': function( event ) {
+
+		let category = toTitleCase($(event.target).val());
+		$(event.target).val(category); 
+
+  	},
+
 	'submit form': function(event, template){
+
 		event.preventDefault();
 		let userId = Meteor.userId();
 
 		let name = template.find('#itemName').value;
-
 
 		let category = template.find('#itemCategory').value;
 

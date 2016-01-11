@@ -4,6 +4,9 @@ Meteor.startup( function() {
 
 		setItem: function (userId, name, category, price, color, suggestion) {
 
+			toTitleCase(name);
+			toTitleCase(category);
+
 			let item = {
 				userId: userId,
 				name: name,
