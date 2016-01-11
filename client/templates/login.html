@@ -16,7 +16,7 @@
 
 <template name="login">
 	<div id="login">
-		<img id="logo-bot" src="hungrylist-mouth.svg">
+		<!-- <img id="logo-bot" src="hungrylist-mouth.svg"> -->
 	    <div class="flex-container">
 	        <div class="login-form">
 	        	<h1> Welcome to <span>Hungrylist.</span> </h1>
@@ -36,14 +36,23 @@
 	                    </div>
 	                </div>
 	                <div class="form-group">
-	                    <div class="col-sm-12">
+	                    <div class="col-sm-6 text-right">
 	                        <button class="btn btn-default btn-lg" id="login-button">Login</button>
+	                    </div>
+	                    <div class="col-sm-6 text-left">
 	                        <button class="btn btn-default btn-lg" id="register-button">Register</button>
 	                    </div>
 	                </div>
 	            </form>
 	        </div>
+
+	        <div id="mouth-box">
+				<img id="mouth" src="hungrylist-mouth.svg">
+			</div> 
+	    
 	    </div>
+
+		
 	   	
 	</div>
 </template>
