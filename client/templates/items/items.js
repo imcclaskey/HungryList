@@ -9,8 +9,8 @@ Template.items.onRendered(function() {
 Template.items.helpers({
 
 	itemFilter: function() {
+		
 		categories = uniqCategories();
-		console.log(categories);
 
 		test = Items.find({$and:[
 	      	{ category: Session.get('itemCategory')||{ $in : categories }},
@@ -18,7 +18,6 @@ Template.items.helpers({
 	      	]},  {sort: {createdAt: -1}
       	});
 
-      	console.log(test);
       	return test;
 	},
 
