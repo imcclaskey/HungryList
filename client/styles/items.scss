@@ -12,6 +12,13 @@ input.error{
 	padding-top: 20px;
 	color:white;
 
+	.item-header {
+		margin-top:10px;
+		margin-bottom: 0;
+		font-family: ff-nuvo-web-pro;
+		font-weight: 600;
+	}
+
 	.form-control {
 		margin-top: 20px;
 		padding: 30px 15px;

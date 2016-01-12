@@ -1,0 +1,113 @@
+<template name="newItem">
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-9 item-fields">
+
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					{{#if existItem}}
+					<h1 class="item-header"> {{existItem}} already exists!</h1>
+					{{else}}
+					<h1 class="item-header"> New Item </h1>
+					{{/if}}
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-xs-12 col-sm-6">
+					<form id="form" class="form-horizontal">
+						<fieldset>
+
+							<div class="control-group">
+							  <div class="controls">
+							    <input id="itemName" name="itemName" type="text" placeholder="Name your item." class=" form-control" autocomplete="off" required />
+							  </div>
+							</div>
+
+							<div class="control-group">
+								<div class="controls">
+									<div class="input-group input-append dropdown combobox" data-initialize="combobox" id="category-input">
+										<input id="itemCategory" type="text" class=" form-control" placeholder="Create/Select Category." name="itemCategory" autocomplete="off" required />
+										<div class="input-group-btn">
+											<button id="category-dropdown-button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+											<ul id="category-dropdown" class="dropdown-menu dropdown-menu-right">
+												{{ #each categories }}
+												<li data-value="{{this}}"><a href="#">{{this}}</a></li>
+												{{ /each }}
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="control-group">
+							  <div class="controls">
+							    <input type="number" min="0" id="itemPrice" name="itemPrice" placeholder="Set price of item." class="form-control" required>
+							  </div>
+							</div>
+
+						</fieldset>
+					</form>
+				</div>	
+
+				<div class="col-xs-12 col-sm-6">
+					<form class="form-horizontal">
+						<fieldset>
+
+							<div class="row">
+								<div class="col-xs-3 text-center color-box">
+									<input id="color-1" class="item-color" type="radio" name="color" value="#2C517D" checked="checked" />
+									<label class="label-1 color-label" for="color-1"></label>
+								</div>
+
+								<div class="col-xs-3 text-center color-box">
+									<input id="color-2" class="item-color" type="radio" name="color" value="#D35B5B" />
+									<label class="label-2 color-label" for="color-2"></label>
+								</div>
+
+								<div class="col-xs-3 text-center color-box">
+									<input id="color-3" class="item-color" type="radio" name="color" value="#B29F59" />
+									<label class="label-3 color-label" for="color-3"></label>
+								</div>
+
+								<div class="col-xs-3 text-center color-box">
+									<input id="color-4" class="item-color" type="radio" name="color" value="#977BA9" />
+									<label class="label-4 color-label" for="color-4"></label>
+								</div>
+							</div>
+
+							
+
+						</fieldset>
+					</form>
+					<div class="control-group">
+							  <div class="controls">
+							    <button id="suggestion-profile" name="suggestion-profile" class="btn btn-block">Suggestion Profile &raquo;</button>
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <div class="controls">
+							    <button id="amazon-profile" name="amazon-profile" class="btn btn-block">Amazon Product &raquo;</button>
+							  </div>
+							</div>
+					</div>
+
+			</div>
+		</div>
+
+
+		<div class="col-xs-12 col-sm-3 item-accept">
+			<div class="control-group">
+			  <div class="controls">
+			    <button type="submit" form="form" id="set-item" name="set-item" class="btn btn-success btn-lg btn-block">
+			    	<span id="set-icon" class="glyphicon {{plusOrBan}}"></span>
+			    	<h1 id="set-popup"> Item Added </h1>
+			    </button>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+</template>

@@ -2,10 +2,13 @@ Meteor.startup( function() {
 
 	return Meteor.methods({
 
-		setItem: function (userId, name, category, price, color, suggestion) {
+		addItem: function (userId, name, category, price, color, suggestion) {
 
-			toTitleCase(name);
-			toTitleCase(category);
+			toTitleCase(name).trim();
+			toTitleCase(category).trim();
+
+			let exist = Items.findOne( {userId: userId, name: name});
+
 
 			let item = {
 				userId: userId,
@@ -16,30 +19,23 @@ Meteor.startup( function() {
 				suggestion:suggestion
 			};
 
-			let exist = Items.findOne({userId: userId, name: name});
-
-			if (exist) {
-				
-				Items.update(
-		   		{ 
-		   			userId: userId,
-		   			name: name
-		   		},
-			   	{ $set: {
-			   		name: name,
-			   		category: category,
-			   		price: price,
-			   		'style.color': color,
-			   		suggestion:suggestion
-			   	}});
-				console.log("updating" + name);
-
-			} else {
-
+			if (!exist) {
 				Items.insert(item);
-				console.log("adding" + item);
-			
+				console.log("adding " + item);
 			}
+			
+		},
+
+		updateItem: function(item, userId, name, category, price, color) {
+
+			Items.update( item, 
+			{ $set: {
+		   		name: name,
+		   		category: category,
+		   		price: price,
+		   		'style.color': color,
+		   	}});
+			console.log("updating " + name);
 
 		},
 

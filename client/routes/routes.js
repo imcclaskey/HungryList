@@ -20,8 +20,31 @@ Router.route('/items', {
   name: "items",
   template: "items",
   layoutTemplate: "layout",
+  yieldTemplates: {
+    'newItem': {to: 'itemBox'}
+  },
   subscriptions: function() {
     return Meteor.subscribe('items', Meteor.userId());
+  }
+});
+
+Router.route('itemsEditing', {
+  name: 'itemsEditing',
+  path: '/items/:slug',
+  template: 'items',
+  layoutTemplate: "layout",
+  yieldTemplates: {
+    'editItem': {to: 'itemBox' }
+  },
+  subscriptions: function() {
+    console.log(this.params.slug);
+    return Meteor.subscribe('items', Meteor.userId());
+  },
+  data: function() {
+    var task = Items.findOne({"userId": Meteor.userId(), "slug": this.params.slug});
+    if (task) {
+      return task;
+    }
   }
 });
 

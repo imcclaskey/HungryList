@@ -12,6 +12,21 @@ ItemSchema = new SimpleSchema({
 	    label: "Item name."
   	},
 
+  	"slug": {
+		type: String,
+		label: "Item slug",
+		optional: true,
+		autoValue: function() {
+		  	var name = this.field("name");
+			if (name.isSet && name.operator !== "$unset") {
+		    	return name.value.toLowerCase()
+								.replace(/ /g,'-')
+    							.replace(/[-]+/g, '-')
+    							.replace(/[^\w\x80-\xFF-]+/g,'');
+		  	}
+		}
+    },
+
 	"category": {
 	    type: String,
 	    label: "Item category."
