@@ -11,7 +11,7 @@ Template.login.events({
 			// 	Router.go('welcome');
 			// }
 			if (Meteor.userId) {
-		        Router.go('welcome');
+		        Router.go('/');
 		    }
 		});
 	},
@@ -32,7 +32,7 @@ Template.login.events({
 	            	$('#error-message').text(error.reason);
 	        	}
 	        	if (Meteor.userId) {
-		        	Router.go('welcome');
+		        	Router.go('/');
 		    	}
 	        });
 		}

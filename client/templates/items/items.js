@@ -43,19 +43,34 @@ Template.items.onRendered(function() {
 
 });
 
-Template.items.helpers({
-
-	items: function() {
-		Items.find({userId: Meteor.userId()});
-	},
-
-  	categories: function() {
-  		let categories = _.uniq(Items.find({userId: Meteor.userId()}, {
+//unique categories
+uniqCategories = function() {
+	let categories = _.uniq(Items.find({userId: Meteor.userId()}, {
 		sort: {category: 1}, fields: {category: true}
 		}).fetch().map(function(x) {
 		return x.category;
 		}), true);
-		return categories
+	return categories;
+}
+
+Template.items.helpers({
+
+	itemFilter: function() {
+		categories = uniqCategories();
+		console.log(categories);
+
+		test = Items.find({$and:[
+	      	{ category: Session.get('itemCategory')||{ $in : categories }},
+	      	{ userId:Meteor.userId() }
+	      	]},  {sort: {createdAt: -1}
+      	});
+
+      	console.log(test);
+      	return test;
+	},
+
+  	categories: function() {
+		return uniqCategories();
 	},
 
 	plusOrCheck: function() {
@@ -70,10 +85,11 @@ Template.items.helpers({
 
 Template.items.events({
 
-	'change #itemName': function( event, template ) {
+	'input #itemName': function( event, template ) {
 
-		let name = toTitleCase($(event.target).val());
+		let name = toTitleCase($(event.target).val()).replace(/^\s+/g, "");
 		$(event.target).val(name); 
+		name = name.replace(/\s+$/g, "");
 		var item = Items.findOne({userId: Meteor.userId(), "name": name});
 
 	    if ( item ) {
@@ -85,9 +101,9 @@ Template.items.events({
 	    }
   	},
 
-  	'change #itemCategory': function( event ) {
+  	'input #itemCategory': function( event ) {
 
-		let category = toTitleCase($(event.target).val());
+		let category = toTitleCase($(event.target).val()).replace(/^\s+/g, "");
 		$(event.target).val(category); 
 
   	},
@@ -97,9 +113,9 @@ Template.items.events({
 		event.preventDefault();
 		let userId = Meteor.userId();
 
-		let name = template.find('#itemName').value;
+		let name = template.find('#itemName').value.trim();
 
-		let category = template.find('#itemCategory').value;
+		let category = template.find('#itemCategory').value.trim();
 
 		let price = template.find('#itemPrice').value;
 		price = Number(price).toFixed(2);
