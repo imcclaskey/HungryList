@@ -181,3 +181,44 @@ input.error{
 *
 ************************************/
 
+.well {
+	background-color: #36333C;
+	border: none;
+	border-radius:10px;
+	padding:30px 30px 10px 30px;
+	margin: 15px;
+}
+
+.list-group-item {
+	margin-bottom:15px !important;
+	font-size: 42px;
+	color: #fff !important;
+	border: none;
+}
+
+.item-category-filter{ 
+	margin-bottom: 15px;
+	background-color: #17B26A;
+	color: #fff !important;
+	border: none;
+
+	&:hover {
+		background-color: #00D672 !important;
+		color: #fff !important;
+	}
+
+	&:focus {
+		background-color: #00D672 !important ;
+		color: #fff !important;
+	}
+
+	&:active { 
+		background-color: #00D672 !important ;
+		color: #fff !important;
+	}
+}
+
+.active {
+	background-color: #00D672 !important ;
+	color: #fff !important;
+}
