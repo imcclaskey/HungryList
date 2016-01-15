@@ -7,7 +7,7 @@ Meteor.startup( function() {
 			toTitleCase(name).trim();
 			toTitleCase(category).trim();
 
-			let exist = Items.findOne( {userId: userId, name: name});
+			let exist = Items.findOne( {userId, name});
 
 
 			let item = {
@@ -21,7 +21,9 @@ Meteor.startup( function() {
 
 			if (!exist) {
 				Items.insert(item);
-				console.log("adding " + item);
+				console.log("adding " + name);
+			} else {
+				throw ( error ) ;
 			}
 			
 		},

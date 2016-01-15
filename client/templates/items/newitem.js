@@ -77,7 +77,7 @@ Template.newItem.events({
 		let name = toTitleCase($(event.target).val()).replace(/^\s+/g, "");
 		$(event.target).val(name); 
 		name = name.replace(/\s+$/g, "");
-		let item = Items.findOne({userId: Meteor.userId(), "name": name});
+		let item = Items.findOne({userId: Meteor.userId(), name});
 
 	    if ( item ) {
 	      	template.plusOrBan.set( "glyphicon-ban-circle" );

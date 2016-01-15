@@ -5,9 +5,9 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-3 col-md-3 col-lg-3">
+			<div class="col-sm-4 col-md-4 col-lg-3">
 
-				<div class="well">
+				<div class="well well-scroll category-scroll">
 					<div class="list-group">
 						{{ #each categories }}
 							<button type="button" id="{{this}}" class="list-group-item item-category-filter">{{this}}</button>
@@ -16,8 +16,8 @@
 				</div>
 			</div>
 
-			<div class="col-sm-9 col-md-9 col-lg-9">
-				<div class="well">
+			<div class="col-sm-8 col-md-8 col-lg-9">
+				<div class="well well-scroll">
 					<div class="list-group">
 						{{#each itemFilter}}
 							<a href="/items/{{slug}}"><button type="button" class="list-group-item" style="background-color: {{style.color}}">{{name}}</button></a>

@@ -124,7 +124,7 @@ input.error{
 	}
 
 	.label-4:before {
-		@include color-radio(#977BA9);
+		@include color-radio(#675373);
 	}
 
 	input[type=radio]:checked + label:before {
@@ -187,6 +187,15 @@ input.error{
 	border-radius:10px;
 	padding:30px 30px 10px 30px;
 	margin: 15px;
+}
+
+.well-scroll {
+	height: 600px;
+
+}
+
+.category-scroll {
+	margin-right: -15px;
 }
 
 .list-group-item {
