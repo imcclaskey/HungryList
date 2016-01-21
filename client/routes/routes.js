@@ -36,6 +36,11 @@ Router.route('itemsEditing', {
   yieldTemplates: {
     'editItem': {to: 'itemBox' }
   },
+  onBeforeAction: function() {
+    Session.set("existItem", "");
+    Session.set("checkOrBan", "glyphicon-ok" );
+    this.next();
+  },
   subscriptions: function() {
     console.log(this.params.slug);
     return Meteor.subscribe('items', Meteor.userId());

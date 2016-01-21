@@ -1,6 +1,7 @@
 Template.editItem.onCreated(function(){
 
-  	this.checkOrBan = new ReactiveVar( "glyphicon-ok" );
+  	Session.set("checkOrBan", "glyphicon-ok" );
+	Session.set("existItem", "");
 
 });
 
@@ -14,6 +15,7 @@ Template.editItem.onRendered(function() {
 	    rules: {
 	      	itemName: {
 	        	required: true,
+	        	uniqueEdit: true
 	      	},
 	        itemCategory: {
 	        	required: true,
@@ -34,7 +36,6 @@ Template.editItem.onRendered(function() {
 	  	}
 	});
         
-
   	$('input').click(function () {
    		$(this).select();
    	});
@@ -43,63 +44,64 @@ Template.editItem.onRendered(function() {
 
 Template.editItem.helpers({
 
-	itemHeader: function() {
-		Template.instance().headerState.get();
-	},
-
   	categories: function() {
 		return uniqCategories();
 	},
 
 	checkOrBan: function() {
-	    return Template.instance().checkOrBan.get();
+	    return Session.get("checkOrBan");
   	},
 
   	existItem: function() {
-  		return Session.get("existItem");
+  		let item = Session.get("existItem")
+  		if (!item) {
+  			return false
+  		} else {
+	  		return {
+	  			name: item.name,
+	  			url: "/items/" + item.slug,
+	  			color: item.style.color
+	  		}
+	  	}
   	}
 
 });
 
 Template.editItem.events({
 
-	'input #itemName': function( event, template ) {
+	'input .item-name': function( event, template ) {
 
-		let name = toTitleCase($(event.target).val()).replace(/^\s+/g, "");
+		let item = Template.currentData();
+		let name = $(event.target).val();
+		name = trimLeading(name);
+		name = toTitleCase(name);
 		$(event.target).val(name); 
-		name = name.replace(/\s+$/g, "");
-		let item = Items.findOne({userId: Meteor.userId(), name});
+		name = trimTailing(name);
+		let edit = Items.findOne({userId: Meteor.userId(), name});
 
-	    if ( item ) {
-	      	template.checkOrBan.set( "glyphicon-ban-circle" );
-	      	Session.set("existItem", name);
-	    } else {
-	      	template.checkOrBan.set( "glyphicon-ok" );
-	      	Session.set("existItem", "");
-	    }
+		if (!edit || item.name === edit.name) {
+			Session.set("checkOrBan", "glyphicon-ok" );
+			Session.set("existItem", "")
+		} else {
+			Session.set("checkOrBan", "glyphicon-ban-circle" );
+	      	Session.set("existItem", edit);
+		}
   	},
 
-  	'input #itemCategory': function( event ) {
+  	'input .item-category': function( event ) {
 		let category = toTitleCase($(event.target).val()).replace(/^\s+/g, "");
 		$(event.target).val(category); 
   	},
 
 	'submit form': function(event, template){
-
 		event.preventDefault();
 		let item = Template.currentData();
 		let userId = Meteor.userId();
-
-
-		let name = template.find('#itemName').value.trim();
-
-		let category = template.find('#itemCategory').value.trim();
-
-		let price = template.find('#itemPrice').value;
+		let name = event.target.itemName.value;
+		let category = event.target.itemCategory.value;
+		let price = event.target.itemPrice.value;
 		price = Number(price).toFixed(2);
-
 		let color = $('input[name=color]:checked').val();  		
-
 		Meteor.call('updateItem', item, userId, name, category, price, color);
 		Session.set('justUpdated', true);
 		Router.go('/items/');

@@ -5,7 +5,17 @@
 
 			<div class="row">
 				<div class="col-xs-12 text-center">
-					<h1 class="item-header"><a href="/items"><span class="glyphicon glyphicon-chevron-left" style="float:left; color: #fff;"> </span></a> {{ name }}</h1>
+					{{#if existItem}}
+					<h1 class="item-header"> 
+						<a href="/items"><span class="glyphicon glyphicon-chevron-left" style="float:left; color: #fff;"> </span></a>
+						<a class="header-link" href="{{existItem.url}}"><span style="color: {{existItem.color}}">{{existItem.name}}</span></a> already exists!
+					</h1>
+					{{else}}
+					<h1 class="item-header">
+						<a href="/items"><span class="glyphicon glyphicon-chevron-left" style="float:left; color: #fff;"> </span></a> 
+						{{ name }}
+					</h1>
+					{{/if}}
 				</div>
 			</div>
 
@@ -17,14 +27,14 @@
 
 							<div class="control-group">
 							  <div class="controls">
-							    <input id="itemName" name="itemName" type="text" placeholder="Name your item." class=" form-control" autocomplete="off" value="{{name}}" required />
+							    <input id="{{name}}" class="item-name form-control" name="itemName" type="text" placeholder="Name your item." autocomplete="off" value="{{name}}" required />
 							  </div>
 							</div>
 
 							<div class="control-group">
 								<div class="controls">
 									<div class="input-group input-append dropdown combobox" data-initialize="combobox" id="category-input">
-										<input id="itemCategory" type="text" class=" form-control" placeholder="Create/Select Category." name="itemCategory" autocomplete="off" value="{{category}}" required />
+										<input class="item-category form-control" type="text" placeholder="Create/Select Category." name="itemCategory" autocomplete="off" value="{{category}}" required />
 										<div class="input-group-btn">
 											<button id="category-dropdown-button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
 											<ul id="category-dropdown" class="dropdown-menu dropdown-menu-right">
@@ -39,7 +49,7 @@
 
 							<div class="control-group">
 							  <div class="controls">
-							    <input type="number" min="0" id="itemPrice" name="itemPrice" placeholder="Set price of item." class="form-control" value="{{price}}" required>
+							    <input type="number" min="0" class="item-price form-control" name="itemPrice" placeholder="Set price of item." value="{{price}}" required>
 							  </div>
 							</div>
 

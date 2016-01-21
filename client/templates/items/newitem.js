@@ -36,11 +36,11 @@ Template.newItem.onRendered(function() {
 	  	}
 	});
 
+	// tail end of update operation
 	if (Session.equals('justUpdated', true)) {
 		$('#set-icon').hide(0).delay(1050).show(0);
 		$('#set-popup').html("Item Updated!").show().delay(600).fadeOut(400);
 		setTimeout(function(){ $('#set-popup').html("Item Added!") }, 1025);
-
 		delete Session.keys['justUpdated'];
 	}
     
@@ -52,10 +52,6 @@ Template.newItem.onRendered(function() {
 
 Template.newItem.helpers({
 
-	itemHeader: function() {
-		Template.instance().headerState.get();
-	},
-
   	categories: function() {
 		return uniqCategories();
 	},
@@ -65,62 +61,65 @@ Template.newItem.helpers({
   	},
 
   	existItem: function() {
-  		return Session.get("existItem");
+  		let item = Session.get("existItem")
+  		if (!item) {
+  			return false
+  		} else {
+	  		return {
+	  			name: item.name,
+	  			url: "/items/" + item.slug,
+	  			color: item.style.color
+	  		}
+	  	}
   	}
 
 });
 
 Template.newItem.events({
 
-	'input #itemName': function( event, template ) {
+	'input .item-name': function( event, template ) {
 
-		let name = toTitleCase($(event.target).val()).replace(/^\s+/g, "");
+		let name = $(event.target).val();
+		name = trimLeading(name);
+		name = toTitleCase(name);
 		$(event.target).val(name); 
-		name = name.replace(/\s+$/g, "");
+		trimTailing(name);
+
 		let item = Items.findOne({userId: Meteor.userId(), name});
 
 	    if ( item ) {
 	      	template.plusOrBan.set( "glyphicon-ban-circle" );
-	      	Session.set("existItem", name);
+	      	Session.set("existItem", item);
+	      	console.log(item);
 	    } else {
 	      	template.plusOrBan.set( "glyphicon-plus" );
 	      	Session.set("existItem", "");
 	    }
   	},
 
-  	'input #itemCategory': function( event ) {
+  	'input .item-category': function( event ) {
 		let category = toTitleCase($(event.target).val()).replace(/^\s+/g, "");
 		$(event.target).val(category); 
   	},
 
 	'submit form': function(event, template){
-
 		event.preventDefault();
 		let userId = Meteor.userId();
-
-		let name = template.find('#itemName').value.trim();
-
-		let category = template.find('#itemCategory').value.trim();
-
-		let price = template.find('#itemPrice').value;
+		let name = event.target.itemName.value;
+		let category = event.target.itemCategory.value;
+		let price = event.target.itemPrice.value;
 		price = Number(price).toFixed(2);
-
 		let color = $('input[name=color]:checked').val();
-
 		let suggestion = Math.floor((Math.random() * 100) + 1);
-
 		console.log(suggestion);
-  		
-
 		Meteor.call('addItem', userId, name, category, price, color, suggestion);
 		$('#set-icon').hide(0).delay(1050).show(0);
 		$('#set-popup').show().delay(600).fadeOut(400);
 
 		template.plusOrBan.set("glyphicon-plus");
-		$('#itemName').val("");
-		$('#itemCategory').val("");
-		$('#itemPrice').val("");
-
+		$('.item-name').val("");
+		$('.item-category').val("");
+		$('.item-price').val("");
 	}
 
 });

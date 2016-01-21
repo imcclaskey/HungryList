@@ -9,19 +9,20 @@ Meteor.startup( function() {
 
 			let exist = Items.findOne( {userId, name});
 
-
-			let item = {
-				userId: userId,
-				name: name,
-				category:category,
-				price:price,
-				style:{ color: color },
-				suggestion:suggestion
-			};
-
 			if (!exist) {
+
+				let item = {
+					userId: userId,
+					name: name,
+					category:category,
+					price:price,
+					style:{ color: color },
+					suggestion:suggestion
+				};
+
 				Items.insert(item);
 				console.log("adding " + name);
+
 			} else {
 				throw ( error ) ;
 			}
@@ -29,6 +30,8 @@ Meteor.startup( function() {
 		},
 
 		updateItem: function(item, userId, name, category, price, color) {
+
+			//need validate
 
 			Items.update( item, 
 			{ $set: {

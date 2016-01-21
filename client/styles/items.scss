@@ -19,6 +19,12 @@ input.error{
 		font-weight: 600;
 	}
 
+	.header-link {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
 	.form-control {
 		margin-top: 20px;
 		padding: 30px 15px;
@@ -42,7 +48,7 @@ input.error{
    		border-bottom-left-radius: 20px;		
 	}
 
-	#itemPrice {
+	.item-price {
 		height: 61.8px;
 		padding: 0 0 0 15px;
 	}
