@@ -1,4 +1,5 @@
 @import 'anim/all';
+@import 'anim/jump';
 
 #shop {
 	height: inherit;
@@ -8,6 +9,7 @@
 
 		> div {
 			height: inherit;
+			overflow-y: hidden;
 		}
 	}
 }
@@ -19,6 +21,10 @@
 	right:0;
 	left:0;
 	margin:auto;
+}
+
+.jump {
+	@include jump;
 }
 
 #filter-input {

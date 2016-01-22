@@ -96,8 +96,6 @@ Template.shop.helpers({
     return total.toFixed(2);
   }
 
-
-
 });
 
 
@@ -106,6 +104,9 @@ Template.shop.events({
   'click .btn-buy': function(event){
     let id = $(event.target).attr('id');
     Meteor.call('primeItem', id, true);
+    $("#logo-bag").addClass("jump");
+    setTimeout(function() {$("#logo-bag").removeClass("jump")}, 250);
+
   },
 
   'click .btn-cart': function(event){
