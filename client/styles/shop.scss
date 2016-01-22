@@ -14,13 +14,28 @@
 	}
 }
 
-#logo-bag {
+#bag {
 	position: absolute;
 	bottom:0;
 	max-width:400px;
 	right:0;
 	left:0;
 	margin:auto;
+}
+
+.numberCircle {
+	position:absolute;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    margin-left: 25px;
+    margin-top: 7px;
+    z-index: 100;
+    padding: 10px;
+    background: #17B26A;
+    color: #fff;
+    text-align: center;
+    font: 32px sans-serif;
 }
 
 .jump {

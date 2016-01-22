@@ -83,8 +83,19 @@ Template.shop.helpers({
     return Items.find( { $and: [ {userId: Meteor.userId() }, { "primed.bool": false }]}, {sort: {suggestion: -1}});
   },
 
-  primedItems: function () {
-    return Items.find( { $and: [ {userId: Meteor.userId() }, { "primed.bool" : true }]}, {sort: {"primed.date": 1}});
+  primed: function () {
+    items = Items.find( { $and: [ {userId: Meteor.userId() }, { "primed.bool" : true }]}, {sort: {"primed.date": 1}});
+    let total = 0;
+    let num = 0
+    items.forEach(function(item) {
+      total += item.price;
+      num++;
+    });
+    return {
+      items: items,
+      total: total.toFixed(2),
+      num: num
+    }
   },
 
   primedTotal : function() {
@@ -94,7 +105,8 @@ Template.shop.helpers({
       total += item.price;
     });
     return total.toFixed(2);
-  }
+  },
+
 
 });
 

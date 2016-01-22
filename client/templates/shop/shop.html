@@ -39,7 +39,7 @@
 			<div class="col-md-4 col-lg-5 hidden-xs">
 
 				<ul id="cart-list">
-					{{ #each primedItems }}
+					{{ #each primed.items }}
 					<li id="{{_id}}" type="button" class="btn btn-cart" style="background-color: {{style.color}}">
 						<div class="row">
 							<div class="col-xs-8 buy-left">{{name}}</div>
@@ -49,9 +49,10 @@
 					{{ /each }}
 				</ul>
 
-				<div class="cart-total"> Total: ${{ primedTotal }} </div>
+				<div class="cart-total"> Total: ${{ primed.total }} </div>
 
 		 		<div id="bag">
+		 			<div class="numberCircle">{{primed.num}}</div>
 	    			<a rel="home" href="#" >
 	        			<img id="logo-bag" src="hungrylist-bag.svg">
 	      			</a>
